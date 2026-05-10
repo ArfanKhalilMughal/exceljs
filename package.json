@@ -13,7 +13,7 @@
     "url": "https://github.com/exceljs/exceljs.git"
   },
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=18.0.0"
   },
   "main": "./excel.js",
   "browser": "./dist/exceljs.min.js",
@@ -101,10 +101,13 @@
     "fast-csv": "^4.3.1",
     "jszip": "^3.10.1",
     "readable-stream": "^3.6.0",
-    "saxes": "^5.0.1",
+    "@zklogic/saxes": "^7.0.1",
     "tmp": "^0.2.0",
-    "unzipper": "^0.10.11",
-    "uuid": "^8.3.0"
+    "unzipper": "^0.11.6",
+    "uuid": "^11.0.3"
+  },
+  "overrides": {
+    "please-upgrade-node": "3.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
@@ -133,7 +136,6 @@
     "grunt-browserify": "^5.3.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jasmine": "^2.2.0",
-    "grunt-contrib-watch": "^1.1.0",
     "grunt-exorcise": "^2.1.1",
     "grunt-terser": "^1.0.0",
     "husky": "^4.3.0",
