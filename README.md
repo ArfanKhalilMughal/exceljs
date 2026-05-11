@@ -1,8 +1,19 @@
 # ExcelJS
 
+[![npm](https://img.shields.io/npm/v/@zklogic/exceljs)](https://www.npmjs.com/package/@zklogic/exceljs)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build Status](https://github.com/exceljs/exceljs/actions/workflows/tests.yml/badge.svg?branch=master&event=push)](https://github.com/exceljs/exceljs/actions/workflows/tests.yml)
 
 Read, manipulate and write spreadsheet data and styles to XLSX and JSON.
+
+> **Fork of [exceljs/exceljs](https://github.com/exceljs/exceljs)** by
+> [Guyon Roche](https://github.com/guyonroche).
+> Original package published to npm as [`exceljs`](https://www.npmjs.com/package/exceljs).
+> This fork is maintained by [Arfan Khalil Mughal](https://github.com/ArfanKhalilMughal)
+> at [ArfanKhalilMughal/exceljs](https://github.com/ArfanKhalilMughal/exceljs)
+> and published to npm as [`@zklogic/exceljs`](https://www.npmjs.com/package/@zklogic/exceljs).
+
+---
 
 Reverse engineered from Excel spreadsheet files as a project.
 
@@ -13,8 +24,20 @@ Reverse engineered from Excel spreadsheet files as a project.
 # Installation
 
 ```shell
-npm install exceljs
+npm install @zklogic/exceljs
 ```
+
+---
+
+## Changes in This Fork
+
+- Migrated XML parser dependency from `saxes` (EOL) to [`@zklogic/saxes`](https://www.npmjs.com/package/@zklogic/saxes) (maintained fork, actively maintained).
+- Upgraded ZIP library from `unzipper@^0.10.11` to `unzipper@^0.12.3` (latest stable, more actively maintained).
+- Package name changed to `@zklogic/exceljs` for clarity that this is a maintained fork.
+- Minimum Node.js version is 18.0.0 (Node 12 reached EOL April 2022).
+- Repository: <https://github.com/ArfanKhalilMughal/exceljs>
+
+---
 
 # New Features!
 
