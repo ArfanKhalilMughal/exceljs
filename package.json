@@ -48,7 +48,7 @@
     "test:unit": "mocha --require spec/config/setup --require spec/config/setup-unit spec/unit --recursive",
     "test:integration": "mocha --require spec/config/setup spec/integration --recursive",
     "test:end-to-end": "mocha --require spec/config/setup spec/end-to-end --recursive",
-    "test:browser": "if [ ! -f .disable-test-browser ]; then npm run build && npm run test:jasmine; fi",
+    "test:browser": "node -e \"const fs=require('fs'); const cp=require('child_process'); if(fs.existsSync('.disable-test-browser')){console.log('Skipping browser tests (.disable-test-browser present)'); process.exit(0);} cp.execSync('npm run build && npm run test:jasmine',{stdio:'inherit'});\"",
     "test:jasmine": "grunt jasmine",
     "test:unit:es5": "export EXCEL_BUILD=es5 && npm run test:unit",
     "test:integration:es5": "export EXCEL_BUILD=es5 && npm run test:integration",
