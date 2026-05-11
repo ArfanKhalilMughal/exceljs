@@ -3,6 +3,7 @@ name: Tests
 on:
   push:
     branches: [ development, "fix/*", "feature/*" ]
+    tags: [ 'v*' ]
   pull_request:
     branches: [ development ]
   workflow_dispatch:
