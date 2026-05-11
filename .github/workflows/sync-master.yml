@@ -1,0 +1,23 @@
+name: Sync master from upstream
+
+on:
+  schedule:
+    - cron: '0 2 * * *'   # daily at 02:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Reset master to upstream exceljs/exceljs
+        run: |
+          git remote add upstream https://github.com/exceljs/exceljs.git
+          git fetch upstream master
+          git reset --hard upstream/master
+          git push origin master --force
