@@ -108,6 +108,16 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
+      - name: Build
+        run: npm run build
+        env:
+          CI: true
+      - name: Verify dist directory
+        run: |
+          if [ ! -d 'dist' ] || [ -z "$(ls -A dist)" ]; then
+            echo "ERROR: dist/ directory is empty or missing. Build must complete successfully."
+            exit 1
+          fi
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
