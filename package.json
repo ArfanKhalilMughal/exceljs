@@ -66,7 +66,8 @@
     "build": "grunt build",
     "install-build": "npm install && grunt build",
     "preversion": "npm run clean && npm run build && npm run test:version",
-    "postversion": "git push --no-verify && git push --tags --no-verify"
+    "postversion": "git push --no-verify && git push --tags --no-verify",
+    "prepublishonly": "node -e \"const fs = require('fs'); if (!fs.existsSync('dist') || fs.readdirSync('dist').length === 0) { console.error('ERROR: dist/ directory is empty or missing. Run npm run build first.'); process.exit(1); } else { console.log('✓ dist/ directory exists and contains files.'); }\""
   },
   "husky": {
     "hooks": {
