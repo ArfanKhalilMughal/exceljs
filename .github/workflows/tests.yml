@@ -2,9 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [ development, "renovate/*" ]
   pull_request:
-    branches: [ '**' ]
+    branches: [ development ]
 
 jobs:
   test:
