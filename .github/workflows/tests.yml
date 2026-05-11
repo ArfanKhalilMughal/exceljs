@@ -2,9 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: [ master, "fix/*", "feature/*" ]
+    branches: [ development, "fix/*", "feature/*" ]
   pull_request:
-    branches: [ master ]
+    branches: [ development ]
   workflow_dispatch:
 
 jobs:
@@ -125,7 +125,7 @@ jobs:
 #   # Publishing is handled by a dedicated workflow (.github/workflows/publish.yml).
 #   # Uncomment and configure here only if consolidating into this file.
 #   needs: [test, typescript]
-#   if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+#   if: github.ref == 'refs/heads/development' && github.event_name == 'push'
 #   runs-on: ubuntu-latest
 #   steps:
 #     - uses: actions/checkout@v4
