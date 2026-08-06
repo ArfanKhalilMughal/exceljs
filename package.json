@@ -1,6 +1,6 @@
 {
   "name": "@zklogic/exceljs",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Excel Workbook Manager - Read and Write xlsx and csv Files.",
   "private": false,
   "license": "MIT",
@@ -117,9 +117,7 @@
     "tmp": "^0.2.0",
     "uuid": "^8.3.0"
   },
-  "overrides": {
-    "brace-expansion": ">=5.0.8"
-  },
+  "overrides": {},
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
