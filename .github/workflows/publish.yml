@@ -14,6 +14,7 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch: {}
 
 jobs:
   publish:
@@ -38,6 +39,10 @@ jobs:
       - run: npm install
 
       - name: Verify tag matches package.json version
+        # Only enforced on tag pushes. Manual (workflow_dispatch) runs can
+        # target any branch or tag from the GitHub Actions ref picker and
+        # just publish whatever version is currently in package.json.
+        if: github.ref_type == 'tag'
         run: |
           TAG_VERSION="${GITHUB_REF_NAME#v}"
           PKG_VERSION="$(node -p "require('./package.json').version")"
@@ -45,7 +50,9 @@ jobs:
             echo "ERROR: tag $GITHUB_REF_NAME implies $TAG_VERSION but package.json is $PKG_VERSION"
             exit 1
           fi
-          echo "Publishing $(node -p "require('./package.json').name")@$PKG_VERSION"
+
+      - name: Show publish target
+        run: echo "Publishing $(node -p "require('./package.json').name")@$(node -p "require('./package.json').version") from ${{ github.ref_name }}"
 
       - name: Build
         run: npm run build
