@@ -1,22 +1,32 @@
 {
-  "name": "exceljs",
-  "version": "4.4.0",
+  "name": "@zklogic/exceljs",
+  "version": "5.0.4",
   "description": "Excel Workbook Manager - Read and Write xlsx and csv Files.",
   "private": false,
   "license": "MIT",
   "author": {
-    "name": "Guyon Roche",
-    "email": "guyon@live.com"
+    "name": "Arfan Khalil Mughal",
+    "email": "arfankhalil@hotmail.com",
+    "url": "https://github.com/ArfanKhalilMughal"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/exceljs/exceljs.git"
+    "url": "https://github.com/ArfanKhalilMughal/exceljs.git"
+  },
+  "forkedFrom": {
+    "repository": "https://github.com/exceljs/exceljs",
+    "author": "Guyon Roche",
+    "url": "https://github.com/guyonroche"
   },
   "bugs": {
-    "url": "https://github.com/exceljs/exceljs/issues"
+    "email": "arfankhalil@hotmail.com",
+    "url": "https://github.com/ArfanKhalilMughal/exceljs/issues"
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "main": "./excel.js",
   "browser": "./dist/exceljs.min.js",
@@ -110,7 +120,9 @@
     "tmp": "^0.2.0",
     "uuid": "^8.3.0"
   },
-  "overrides": {},
+  "overrides": {
+    "lazystream": "npm:@zklogic/lazystream@^1.0.3"
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
