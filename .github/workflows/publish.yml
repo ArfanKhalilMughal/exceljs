@@ -1,0 +1,54 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch or tag to publish
+        required: true
+        default: development
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+      - name: Check for version tag
+        id: version_tag
+        run: |
+          if git tag --points-at HEAD | grep -Eq '^v.+'; then
+            echo "is_version_tag=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_version_tag=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.version_tag.outputs.is_version_tag == 'true'
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Upgrade npm for OIDC provenance support
+        if: steps.version_tag.outputs.is_version_tag == 'true'
+        run: npm install -g npm@latest
+      - run: npm ci
+        if: steps.version_tag.outputs.is_version_tag == 'true'
+      - name: Build
+        if: steps.version_tag.outputs.is_version_tag == 'true'
+        run: npm run build
+        env:
+          CI: true
+      - name: Verify dist directory
+        if: steps.version_tag.outputs.is_version_tag == 'true'
+        run: |
+          if [ ! -d 'dist' ] || [ -z "$(ls -A dist)" ]; then
+            echo "ERROR: dist/ directory is empty or missing. Build must complete successfully."
+            exit 1
+          fi
+      - run: npm publish --access public
+        if: steps.version_tag.outputs.is_version_tag == 'true'
