@@ -68,3 +68,4 @@ _SpecRunner.html
 enpm-lock.yaml
 /wiki-drafts/
 nul
+.codesight/*
