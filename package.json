@@ -23,7 +23,7 @@
     "url": "https://github.com/ArfanKhalilMughal/exceljs/issues"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "main": "./excel.js",
   "browser": "./dist/exceljs.min.js",
@@ -108,7 +108,7 @@
   ],
   "dependencies": {
     "@zklogic/saxes": "^7.0.4",
-    "@zklogic/unzipper": "^0.13.0",
+    "@zklogic/unzipper": "^0.13.2",
     "archiver": "^5.0.0",
     "dayjs": "^1.8.34",
     "fast-csv": "^4.3.1",
