@@ -115,7 +115,7 @@
     "jszip": "^3.10.1",
     "readable-stream": "^3.6.0",
     "tmp": "^0.2.0",
-    "uuid": "^8.3.0"
+    "uuid": "^11.1.1"
   },
   "overrides": {},
   "devDependencies": {
