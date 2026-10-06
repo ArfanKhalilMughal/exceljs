@@ -1,6 +1,6 @@
 {
   "name": "@zklogic/exceljs",
-  "version": "5.0.9",
+  "version": "5.0.10",
   "description": "Excel Workbook Manager - Read and Write xlsx and csv Files.",
   "private": false,
   "license": "MIT",
@@ -108,7 +108,7 @@
   ],
   "dependencies": {
     "@zklogic/saxes": "^7.0.4",
-    "@zklogic/unzipper": "^0.13.2",
+    "@zklogic/unzipper": "^0.13.3",
     "archiver": "^5.0.0",
     "dayjs": "^1.8.34",
     "fast-csv": "^4.3.1",
